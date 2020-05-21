@@ -69,7 +69,7 @@
 ## itemテーブル
 |column|Type|Option|
 |------|----|------|
-|item_name|string|null: false,|
+|name|string|null: false,|
 |introduction|text|null: false,|
 |price|integer|null: false|
 |shipment_date|string|null: false|
@@ -81,7 +81,6 @@
 |seller|reference|null: false, foreign_key: true|
 |buyer|reference|foreign_key: true|
 |prefecture|string|null: false|
-|item_img|reference|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
 - belongs_to : category
