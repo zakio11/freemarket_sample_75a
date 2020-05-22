@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  # before_action :authenticate_user!
+  # （ログイン済みユーザーのみアクセスを許可する）
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   private
 
