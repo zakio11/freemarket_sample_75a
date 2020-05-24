@@ -1,54 +1,90 @@
-// .vsc-initialized{
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   height: 100vh;
-//   // width: 100vw;
-//   background-color: #f1f1f1;
 
+.new{
+  min-width:700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  overflow: scroll;
 
-  .header{
-    height: 120px;
-    display:flex;
-    align-items: 120px;
+  .regist-menu{
+    width: 400px;
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    h1{
+      color: red;
+    }
+    h3{
+      width: 64px;
+    }
+  }
+
+  .member-regist{
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .regist{
     align-items: center;
-    
-    .turn{
-      margin: 0 auto;
-      background-color: #999999;
-      height: 60px;
-      width: 700px;
+    width: 300px;
+    white-space: normal;
+    &__require{
       display: flex;
+      justify-content: start;
+      h4{
+        margin-left: 10px;
+        color: red;
+        font-size: 12px;
+      }
+    }
+
+    input{
+      width: 300px;
+      height: 40px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      }
+
+    &__message{
+      word-break: break-all;
+      h1{
+        font-weight: bold;
+        font-size: 14px;
+      }
+      h2{
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__form{
+      display: flex;
+      justify-content: space-between;
+      input{
+      width: 140px;
+      }
+    }
+
+    &__birthday{
+      .time-box{
+        width: 90px;
+        height:40px;
+        margin-bottom: 20px;
+      }
     }
   }
 
-  .regist-box{
-    background-color: #fff;
-    height: 260px;
-    width: 700px;
-  }
-
-  .partition{
-    margin-top: 30px;
-    height: 50px;
-    width: 600px;
+  .new-regist{
+    &__submit{
+      margin-top: 20px;
+      margin-bottom: 100px;
+      .btn{
+        width: 300px;
+        height: 50px;
+        border-radius: 1px;
+      }
     
-    .hr{
-      border: none;
-      border-top: 1px #e6e6e6 solid;
     }
   }
-
-  .login{
-    height: 100px;
-    width: 100%;
-  }
-
-
-  .footer{
-    height: 60px;
-    width: 100vw;
-    bottom: 0;
-    background-color: rgb(161, 161, 161);
-  }
+}
