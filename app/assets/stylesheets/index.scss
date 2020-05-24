@@ -9,6 +9,32 @@ body{
     height: 36px;
     padding: 0 0 0 5px;
   }
+  @mixin name {
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-right: 30px;
+  }
+  @mixin item {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+  }
+  @mixin list {
+    color: #333;
+    line-height: 38px;
+    padding: 0 0 0 16px;
+  }
+  @mixin description {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 16px 0 0;
+  }
   .header{
     display: block;
     padding: 0 60px;
@@ -82,13 +108,7 @@ body{
             text-decoration: none;
             padding: 0;
             a{
-              color: #333;
-              text-decoration: none;
-              line-height: 32px;
-              background-position: center right;
-              background-repeat: no-repeat;
-              background-size: 18px;
-              padding-right: 30px;
+              @include name;
             }
           }
           &__item{
@@ -96,13 +116,7 @@ body{
             line-height: 38px;
             padding: 0 0 0 16px;
             a{
-              color: #333;
-              text-decoration: none;
-              line-height: 32px;
-              background-position: center right;
-              background-repeat: no-repeat;
-              background-size: 18px;
-              padding-right: 30px;
+              @include name;
             }
           }
         }
@@ -110,27 +124,15 @@ body{
           margin-left: auto;
           display: flex;
           &__item-login{
-            color: #333;
-            line-height: 38px;
-            padding: 0 0 0 16px;
+            @include list;
             a{
-              display: flex;
-              align-items: center;
-              color: #333;
-              text-decoration: none;
-              line-height: 32px;
+              @include item;
             }
           }
           &__item-new{
-            color: #333;
-            line-height: 38px;
-            padding: 0 0 0 16px;
+            @include list;
             a{
-              display: flex;
-              align-items: center;
-              color: #333;
-              text-decoration: none;
-              line-height: 32px;
+              @include item;
             }
           }
         }
@@ -241,9 +243,7 @@ body{
             }
             }
           &__description{
-            font-size: 18px;
-            line-height: 1.5;
-            margin: 16px 0 0;
+            @include description;
         } 
         &__pict{
             position: relative;
@@ -256,9 +256,7 @@ body{
             margin: 0 0 0 2px;
             }
           &__description{
-            font-size: 18px;
-            line-height: 1.5;
-            margin: 16px 0 0;
+            @include description;
         } 
       }
     }
