@@ -23,6 +23,7 @@
           %a{href: "#"} ログイン
         %li.lists__right__item-new
           %a{href: "#"} 新規会員登録
+
 .main
   .main__view
     .main__view__content
@@ -71,6 +72,7 @@
           %span 業界最安
         %p.reason__lists__list__description
           最大3%でお得に出品&amp;購入！
+  
   .middle
     .middle__inner
       %h2.middle__inner__subtitle 会員数日本一位
@@ -85,34 +87,36 @@
           = image_tag 'apple.png'
         %a{href: "#"}
           = image_tag 'google.png'
+  
   .features
     %h2.features__head FURIMAの特徴
     .features__items
       .features__items__item
-        .features__items__item__img
+        .features__items__item--img
           = image_tag 'material/icon/icon-01.png'
         %h3.features__items__item__subtitle 
           簡単に売り買いできる
         %p.features__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       .features__items__item
-        .features__items__item__img
+        .features__items__item--img
           = image_tag 'material/icon/icon-02.png'
         %h3.features__items__item__subtitle 売上金は即日振込みに対応
         %p.features__items__item__detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       .features__items__item
-        .features__items__item__img
+        .features__items__item--img
           = image_tag 'material/icon/icon-03.png'
         %h3.features__items__item__subtitle 様々な支払いに対応
         %p.features__items__item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  
   .pickup
     %h2.pickup__head ピックアップカテゴリー
     .pickup__products
       .pickup__products__product
         %a{href: "#"}
-          %h3.pickup__products__product__title 新規投稿商品
+          %h3.title 新規投稿商品
       .product-lists
         .product-list
           %a{href: "/products/3"}
