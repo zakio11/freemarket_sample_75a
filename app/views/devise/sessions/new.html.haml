@@ -1,0 +1,108 @@
+=render "users/logo"
+
+.new
+  .regist-menu
+    %h1 会員情報
+    %h2 完了
+
+  .member-regist
+    .member-regist__title
+      %h1 会員情報入力
+
+  .regist
+    = form_with url: root_path do |f| 
+      .regist__require
+        %h1 ニックネーム
+        %h4 必須
+      .regist__nickname
+        = f.text_field :nickname
+
+      .regist__require
+        %h1 メールアドレス
+        %h4 必須
+      .regist__email
+        = f.email_field :email
+
+      .regist__require
+        %h1 再確認メールアドレス
+        %h4 必須
+      .regist__re-email
+        = f.email_field :email
+
+      .regist__require
+        %h1 password
+        %h4 必須
+      .regist__password
+        = f.text_field :password
+
+      .regist__message
+        %h1 本人確認
+        %h2 安心・安全にご利用いただくために、お客様の本人情報の登録にご協力ください。他のお客様に公開されることはありません。
+
+      .regist__require
+        %h1 苗字・お名前（全角）
+        %h4 必須
+        
+      .regist__form
+        .regist__form--first_name
+          = f.text_field :first_name
+        .regist__form--family_name
+          = f.text_field :family_name
+
+      .regist__require
+        %h1 苗字・お名前カナ（全角）
+        %h4 必須        
+      
+      .regist__form
+        .regist__form--first_name_kana
+          = f.text_field :first_name_kana
+        .regist__form--family_name_kana
+          = f.text_field :family_name_kana
+
+      .regist__require
+        %h1 生年月日
+        %h4 必須     
+      .regist__birthday
+        = f.date_select :birthday, {include_blank: true, date_separator:"",start_year:1900, use_month_numbers: true}, {class: 'time-box'}
+
+
+      .regist__require
+        %h1 郵便番号
+        %h4 必須
+      .regist__post-number
+        = f.text_field :post_number
+
+      .regist__require
+        %h1 都道府県
+        %h4 必須
+      .regist__prefecture
+        = f.text_field :prefecture
+
+      .regist__require
+        %h1 市区町村
+        %h4 必須
+      .regist__city
+        = f.text_field :city
+
+      .regist__require
+        %h1 番地
+        %h4 必須
+      .regist__house-number
+        = f.text_field :house_number
+
+      .regist__require
+        %h1 マンション名
+      .regist__building-name
+        = f.text_field :building_name
+
+
+      .regist__message
+        %h2 ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+  .new-regist
+    %h1 「新規登録」のボタンを押すことにより、
+    %h1 利用規約に同意したものとみなします
+
+    .new-regist__submit
+      = submit_tag "新規登録", class: "btn"
+
