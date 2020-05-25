@@ -1,0 +1,18 @@
+=render "users/logo"
+
+.edit
+  .new-regist
+    %h1 アカウントをお持ちでない方はこちら
+    = submit_tag "新規会員登録", class: "new-regist-btn"
+
+  .login
+    = form_with url: root_path do |f| 
+      .login__email
+        %h1 メールアドレス
+        = f.email_field :email
+      .login__password
+        %h1 password
+        = f.text_field :password
+
+  .login__btn
+    = submit_tag "ログイン", class: "login-btn"
