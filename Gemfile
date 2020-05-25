@@ -72,5 +72,7 @@ group :production do
 end
 
 gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'font-awesome-sass'
 gem 'devise'
-gem "font-awesome-sass"
