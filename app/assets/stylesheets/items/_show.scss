@@ -46,7 +46,7 @@
       min-height: 82px;
       margin: 0 auto;
       padding: 15px 0 0;
-      &__main{
+      &--main{
         position: relative;
         display: flex;
         align-items: center;
@@ -60,7 +60,7 @@
             img{
               width: 100%;
               vertical-align: bottom;
-            }
+              }
             } 
           }
         }
@@ -86,10 +86,8 @@
               vertical-align: bottom;
             }
           }
-        
         }
-        
-        }
+      }
         ul.resultLists{
           list-style: none;
           display: flex;
@@ -106,14 +104,14 @@
         &__left{
           position: relative;
           display: flex;
-          &__first-item{
+          &--first-item{
             text-decoration: none;
             padding: 0;
             a{
               @include name;
             }
           }
-          &__item{
+          &--item{
             display: flex;
             line-height: 38px;
             padding: 0 0 0 16px;
@@ -125,13 +123,13 @@
         &__right{
           margin-left: auto;
           display: flex;
-          &__item-login{
+          &--item-login{
             @include list;
             a{
               @include item;
             }
           }
-          &__item-new{
+          &--item-new{
             @include list;
             a{
               @include item;
@@ -139,7 +137,7 @@
           }
         }
       } 
-  }  
+    }  
   nav.bread-line{
     width: 100%;
     border-top: 1px solid #eee;
@@ -169,7 +167,6 @@
         i:before{
           content: "\f105";
         }
-
       }
       li.list-last{
         font-weight: bold;
@@ -186,23 +183,23 @@
     &__content{
       padding: 40px;
       margin: 0 auto;
-      &__left{
+      &--left{
         margin: 0;
         padding: 0;
-      }&__right{
+      }&--right{
         width: 700px;
         margin: 0 auto;
-        .content{
+        .view{
           margin: 0;
           padding: 0;
           &__item{
             background-color: #fff;
             padding: 24px 40px 40px;
-            &__box{
+            &--box{
               text-align: center;
               font-weight: bold;
               font-size: 24px
-            }&__body{
+            }&--body{
               margin: 16px 0 0;
               ul{
                 display: flex;
@@ -337,14 +334,14 @@
               min-height: 104px;
               padding: 10px;
             }
-            p.notice-msg{
+            &__notice-msg{
               padding: 8px;
               font-size: 14px;
               background-color: #f8f8f8;
               margin: 10px 0;
               text-align: left;
             }
-            button.comment-btn{
+            &__comment-btn{
               line-height: 48px;
               background: #3CCACE;
               border: 1px solid #3CCACE;
@@ -399,7 +396,6 @@
         }
       } 
     }
-  
   }
   .footer{
     padding: 60px 0;
@@ -472,7 +468,7 @@
       vertical-align: bottom;
       width: 60%;
       border: 0;
+      }
     }
   }
-}
 }
