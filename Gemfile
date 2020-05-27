@@ -76,3 +76,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'erb2haml'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'payjp'
+gem "jquery-rails"

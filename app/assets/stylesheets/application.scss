@@ -1,8 +1,11 @@
 @import "reset";
 @import "logo";
-@import "new";
-@import "edit";
+@import "devise/new";
+@import "devise/edit";
+@import "show";
 @import "index";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "items/new";
+@import "modules/user";
+@import "card/show"

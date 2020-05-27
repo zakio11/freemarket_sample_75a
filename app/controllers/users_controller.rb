@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+      @user = User.find(params[:id])
   end
 
   def update
@@ -13,6 +14,13 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+
+
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'ログアウトしました。'
   end
 
   private
