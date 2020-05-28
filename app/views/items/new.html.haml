@@ -5,16 +5,18 @@
   .exhibision__content
     = form_with model: @item do |f|
       .exhibision__content__box
-        .exhibision__content__box__iamge
-          .exhibision__content__box__iamge--name
+        .exhibision__content__box__image
+          .exhibision__content__box__image--name
             出品画像
             %span 必須
-          .exhibision__content__box__iamge--form
-            = f.fields_for :iamges do |i|
-              .form-area
-                = i.file_field :iamge, type: 'file',name: "", value:"",style:"display:none", id:"image-file"
-                %label{for: "image-file"}
+          %p 最大10枚までアップロードできます
+          #image-box-1
+            .item-num-0#image-box__container
+              = f.fields_for :images do |i|
+                = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
                   %i.fas.fa-camera
+
         .exhibision__content__box--item
           .exhibision__content__box--item--name
             商品名
