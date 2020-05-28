@@ -25,7 +25,7 @@
           %li.lists__right__item-login
             = current_user.nickname
           %li.lists__right__item-new
-            = link_to "ログアウト(仮設)", destroy_user_session_path, method: :delete
+            = link_to "マイページ（ログアウト）", destroy_user_session_path, method: :delete
 
         - else  
           %li.lists__right__item-login
