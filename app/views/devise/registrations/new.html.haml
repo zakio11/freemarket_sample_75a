@@ -1,18 +1,52 @@
 =render "users/logo"
 
-.edit
-  .new-regist
-    %h1 アカウントをお持ちでない方はこちら
-    = submit_tag "新規会員登録", class: "new-regist-btn"
+.new
+  .regist-menu
+    %h1 会員情報
+    %h2 詳細情報
+    %h3 完了
 
-  .login
-    = form_with url: root_path do |f| 
-      .login__email
-        %h1 メールアドレス
-        = f.email_field :email
-      .login__password
-        %h1 password
-        = f.text_field :password
+  = render "devise/shared/error_messages", resource: @user
+  
+  .member-regist
+    .member-regist__title
+      %h1 会員情報入力
 
-  .login__btn
-    = submit_tag "ログイン", class: "login-btn"
+  .regist
+    = form_for(@user, url: user_registration_path) do |f|
+      .regist__require
+        = f.label "ニックネーム"
+        %h4 必須
+      .regist__nickname
+        = f.text_field :nickname
+
+      .regist__require
+        = f.label "メールアドレス"
+        %h4 必須
+      .regist__email
+        = f.email_field :email, autocomplete: "email"
+
+      .regist__require
+        = f.label "パスワード"
+        %h4 必須
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} 文字以上)
+        %br/
+      .regist__password
+        = f.password_field :password, autocomplete: "new-password"
+
+      .regist__require
+        = f.label "確認用パスワード"
+        %h4 必須
+      .regist__password-confirmation
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+
+
+
+      .new-regist__submit
+        = f.submit "次へ"
+        = render "devise/shared/links"
+
+
+

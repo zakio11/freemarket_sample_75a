@@ -1,3 +1,9 @@
+@mixin require {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+
 .new{
   min-width:700px;
   display: flex;
@@ -32,9 +38,12 @@
       display: flex;
       justify-content: start;
       h4{
-        margin-left: 10px;
         color: red;
-        font-size: 12px;
+        @include require;
+      }
+      h5{
+        color: rgb(163, 163, 163);
+        @include require;
       }
     }
 
@@ -75,16 +84,15 @@
   }
 
   .new-regist{
-    &__submit{
-      margin-top: 20px;
-      margin-bottom: 100px;
-      .btn{
-        width: 300px;
-        height: 50px;
-        border-radius: 1px;
-      }
-    }
+    margin-top: 20px;
   }
+  .submit{
+    width: 300px;
+    height: 50px;
+    border-radius: 1px;
+    margin-bottom: 100px;
+  }
+ 
 }
 
 

@@ -37,12 +37,12 @@
 ## profileテーブル
 |column|Type|Option|
 |------|----|------|
-|phone_number|integer|unique:true|
+|phone_number|string||
 |first_name|string|null: false|
 |family_name|string|null: false,|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|birthday|integer|null: false|
+|birthday|data|null: false|
 |introduction|text||
 |post_number|integer|null: false|
 |prefecture|string|null: false|
