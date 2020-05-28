@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'ログアウトしました。'
   end
 
+
+  def logout
+  end
+
   private
 
   def user_params

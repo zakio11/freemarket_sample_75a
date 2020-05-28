@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'items#index'
   
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update]
-  resources :users, only: [:show, :destroy]
+  resources :users, only: [:show, :destroy, :logout]
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'

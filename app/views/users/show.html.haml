@@ -1,24 +1,36 @@
-.logout__content
-  .logout__content__box
-    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-    
+.header
+  = image_tag "material/logo/logo.png", class: "image1"
+  .content
+    .my__banner
+      = image_tag "material/icon/member_photo_noimage_thumb.png", class: "image2"
 
-  %li.mypage__nav__list--item 出品した商品-出品中
+    .mypage__nav 
 
-  %li.mypage__nav__list--item 出品した商品-取引中
+      %li.mypage__nav__list 出品する
 
-  %li.mypage__nav__list--item 出品した商品-売却済み
+      %li.mypage__nav__list 下書き一覧
 
-  %li.mypage__nav__list--item 購入した商品-取引中
+      %li.mypage__nav__list 出品した商品-出品中
 
-  %li.mypage__nav__list--item 購入した商品-過去の取引
+      %li.mypage__nav__list 出品した商品-取引中
 
-  %li.mypage__nav__list--item 評価一覧
+      %li.mypage__nav__list 出品した商品-売却済み
 
-  %li.mypage__nav__list--item プロフィール
+      %li.mypage__nav__list 購入した商品-取引中
 
-  %li.mypage__nav__list--item メール/パスワード
+      %li.mypage__nav__list 購入した商品-過去の取引
 
-  %li.mypage__nav__list--item 本人情報
+      %li.mypage__nav__list 評価一覧
 
-  %li.mypage__nav__list--item 電話番号の確認
+      %li.mypage__nav__list プロフィール
+
+      %li.mypage__nav__list 支払い方法
+
+      %li.mypage__nav__list メール/パスワード
+
+      %li.mypage__nav__list 本人情報
+
+      %li.mypage__nav__list 電話番号の確認
+
+      %li.mypage__nav__list 
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
