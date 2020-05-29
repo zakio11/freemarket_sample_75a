@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-
-  resources :items, only: [:index, :new, :create, :edit, :update]
-  resources :users
-
+  
+  resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update]
+  resources :users, only: [:show, :destroy, :logout]
+  
 end
