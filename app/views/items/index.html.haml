@@ -22,10 +22,9 @@
             ブランド
       %ul.lists__right
         - if user_signed_in?
-          %li.lists__right__item-login
-            = current_user.nickname
+          
           %li.lists__right__item-new
-            = link_to "マイページ（ログアウト）", destroy_user_session_path, method: :delete
+            = link_to "マイページ", "users/show"
 
         - else  
           %li.lists__right__item-login
