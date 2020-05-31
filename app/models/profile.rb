@@ -3,6 +3,8 @@ class Profile < ApplicationRecord
   validates :birthday, :post_number, :prefecture, :city, :house_number,     presence: true
   validates :first_name, :family_name, :first_name_kana, :family_name_kana, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/,message: "全角のみで入力して下さい"}
 
+
+  # 下記は単体テストで使用するため残してください
   # FactoryBot.define do
 
   #   factory :profile do
@@ -17,8 +19,7 @@ class Profile < ApplicationRecord
   #     city                      {"沼津市"}
   #     house_number              {"内浦"}
   #     building_name             {"123"}
-
   #   end
-  
   # end
+
 end

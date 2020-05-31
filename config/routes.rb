@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
+  get "users/signout"
   
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update]
-  resources :users, only: [:show, :destroy, :logout]
+  resources :users, only: [:new, :create, :show, :destroy]
+  resources :cards, only: [:new, :edit, :show, :destroy, :pay]
   
 end

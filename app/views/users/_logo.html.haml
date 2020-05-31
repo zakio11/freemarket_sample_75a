@@ -1,4 +1,4 @@
-= link_to root_path
 .logo
-  .logo__box
-    = image_tag "material/logo/logo.png", class:"logo__box--image", alt:"title logo"
+  = link_to "/", class:"logo__box" do
+    = image_tag "material/logo/logo.png", alt:"title logo" ,class:"logo__box--image"
+    

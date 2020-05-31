@@ -8,7 +8,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_one :profile
 
-
+  
+  # 下記は単体テストで使用するため残してください 
   # FactoryBot.define do
   #   factory :user do
   #     nickname              {"ohara"}
@@ -16,6 +17,6 @@ class User < ApplicationRecord
   #     password              {"1111111"}
   #     password_confirmation {"1111111"}
   #   end
-  
   # end
+
 end

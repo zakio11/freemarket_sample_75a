@@ -1,0 +1,12 @@
+=render "users/logo"
+
+
+.card
+  .card__box 登録クレジットカード情報
+
+  .registration__btn
+    = button_to '登録する', new_card_path,method: :get, class: 'mypage__nav--btn'
+    
+
+  .change__btn
+    = button_to '変更する', "#",method: :get, class: 'mypage__nav--btn'

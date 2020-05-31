@@ -1,15 +1,15 @@
 .logo{
-  width: 100vh;
+  width: 100vw;
   height: 150px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  justify-content: center;
   &__box{
     display: flex;
     justify-content: center;
     &--image{
-      width: 30%;
-      height: 30%;
+      width: 40%;
+      height: 40%;
     }
   }
 }

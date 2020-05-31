@@ -1,18 +1,18 @@
 =render "users/logo"
 
-.edit
-  .new-regist
-    .new-regist-btn
-      = link_to "新規会員登録はこちら", new_user_registration_path
-
-  .login
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .login__email
-        %h1 メールアドレス
-        = f.email_field :email
-      .login__password
-        %h1 password
-        = f.password_field :password
-      .login__btn
-        = f.submit "ログイン"
-
+.session
+  .new
+    .login
+      .new-regist
+      = button_to '新規会員登録はこちら', new_user_registration_path, method: :get
+      
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login__email
+          %h1 メールアドレス
+          = f.email_field :email
+        .login__password
+          %h1 password
+          = f.password_field :password
+        .login__btn
+          = f.submit "ログイン"
+    
