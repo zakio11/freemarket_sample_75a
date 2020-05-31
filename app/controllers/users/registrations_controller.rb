@@ -24,9 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
-
-
-
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
@@ -34,10 +31,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @profile.errors.full_messages
       render :new_profile and return
     end
-    @user.build_profile(@profile.attributes)
-    @user.save
-    session["devise.regist_data"]["user"].clear
-    sign_in(:user, @user)
+    @user.transaction do
+      @user.build_profile(@profile.attributes)
+      @user.save!
+        session["devise.regist_data"]["user"].clear
+        sign_in(:user, @user)
+    rescue => e
+      render "/devise/registrations/error"
+    end
     
   end
 
