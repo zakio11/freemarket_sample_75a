@@ -4,37 +4,6 @@
 body{
   font-size: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   
-  @mixin circle {
-    width: calc(100% - 26px);
-    height: 36px;
-    padding: 0 0 0 5px;
-  }
-  @mixin name {
-    color: #333;
-    text-decoration: none;
-    line-height: 32px;
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: 18px;
-    padding-right: 30px;
-  }
-  @mixin item {
-    display: flex;
-    align-items: center;
-    color: #333;
-    text-decoration: none;
-    line-height: 32px;
-  }
-  @mixin list {
-    color: #333;
-    line-height: 38px;
-    padding: 0 0 0 16px;
-  }
-  @mixin description {
-    font-size: 18px;
-    line-height: 1.5;
-    margin: 16px 0 0;
-  }
   .header{
     display: block;
     padding: 0 60px;
@@ -143,7 +112,7 @@ body{
     &__view{
       width: 100%;
       height: 560px;
-      background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
+      background-image: image-url("material/pict/bg-mainVisual-pict_pc.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: top center;
@@ -179,14 +148,14 @@ body{
               height: 65px;
             }
           }
-          }
         }
+      }
     }
       &__picture{
         position: absolute;
         top: 0;
         right: 210px;
-        }
+      }
     }
     .reason{
       padding: 60px 20px;
@@ -232,7 +201,7 @@ body{
               width: 100%;
               vertical-align: bottom;
             }
-        }
+          }
           &__text{
             font-weight: bold;
             font-size: 24px;
@@ -241,7 +210,7 @@ body{
             span{
               color: #3CCACE;
             }
-            }
+          }
           &__description{
             @include description;
         } 
@@ -260,10 +229,9 @@ body{
         } 
       }
     }
-    
   }
     .middle{
-      background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+      background-image: image-url("material/pict/bg-topMiddleDl-pict.jpg");
       background-position: bottom right;
       height: 400px;
       background-size: cover;
@@ -346,11 +314,9 @@ body{
             font-weight: 200;
             text-align: left;
           }
-            
-          }
-          
-    }   
- }
+        }  
+      }   
+    }
     .pickup{
       padding: 80px 0 0;
       padding-bottom: 80px;
@@ -459,11 +425,10 @@ body{
           }
         }
       }
-    
     }     
   }
   .banner{
-    background-image: url("material/pict/bg-appBanner-pict.jpg");
+    background-image: image-url("material/pict/bg-appBanner-pict.jpg");
     padding: 100px 40px;
     position: relative;
     background-size: cover;
@@ -576,6 +541,6 @@ body{
       width: 60%;
       border: 0;
     }
-}
+  }
 }
 

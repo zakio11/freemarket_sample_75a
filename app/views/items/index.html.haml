@@ -5,28 +5,32 @@
         = link_to "/" do
           = image_tag 'logo.png'
       .search-form
-        %form{"accept-charset" => "UTF-8", action: "#", method: "get"}
+        %form{"accept-charset": "UTF-8", action: "#", method: "get"}
           %input{name: "utf8", type: "hidden", value: "✓"}/
-          %input{:name => "key", :placeholder => "キーワードから探す"}
-          %button{type: "submit"} 
+          %input{name: "key", placeholder: "キーワードから探す"}
+          %button{type: "submit"}
             = image_tag 'material/icon/icon-search 1.png', class: "search-form__icon"
           %input{name: "authenticity_token", type: "hidden", value: ""}
       %ul.resultLists
-    .lists     
+    .lists
       %ul.lists__left
         %li.lists__left__first-item
-          = link_to "/" do
+          = link_to "#" do
             カテゴリー
         %li.lists__left__item
-          = link_to "/" do
+          = link_to "#" do
             ブランド
       %ul.lists__right
-        %li.lists__right__item-login
-          = link_to "/" do
-            ログイン
-        %li.lists__right__item-new
-          = link_to "/" do
-            新規会員登録
+        - if user_signed_in?
+
+          %li.lists__right__item-new
+            = link_to "マイページ", "users/show"
+
+        - else
+          %li.lists__right__item-login
+            = link_to "ログイン", new_user_session_path
+          %li.lists__right__item-new
+            = link_to "新規会員登録", new_user_registration_path
 
 .main
   .main__view
@@ -76,7 +80,7 @@
           %span 業界最安
         %p.reason__lists__list__description
           最大3%でお得に出品&amp;購入！
-  
+
   .middle
     .middle__inner
       %h2.middle__inner__subtitle 会員数日本一位
@@ -87,18 +91,18 @@
         %br/
         ほしかったあの商品に出会えるかもしれません。
       .middle__inner__btn
-        = link_to "/" do
+        = link_to "#" do
           = image_tag 'apple.png'
-        = link_to "/" do
+        = link_to "#" do
           = image_tag 'google.png'
-  
+
   .features
     %h2.features__head FURIMAの特徴
     .features__items
       .features__items__item
         .features__items__item--img
           = image_tag 'material/icon/icon-01.png'
-        %h3.features__items__item__subtitle 
+        %h3.features__items__item__subtitle
           簡単に売り買いできる
         %p.features__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
@@ -114,16 +118,16 @@
         %h3.features__items__item__subtitle 様々な支払いに対応
         %p.features__items__item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  
+
   .pickup
     %h2.pickup__head ピックアップカテゴリー
     .pickup__products
       .pickup__products__product
-        = link_to "/" do
+        = link_to "/items/new" do
           %h3.title 新規投稿商品
       .product-lists
         .product-list
-          = link_to "/products/3" do
+          = link_to "#" do
             .product-list-img
               = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
             .product-list-body
@@ -136,7 +140,7 @@
                     0
                 %p (税込)
         .product-list
-          = link_to "/products/2" do
+          = link_to "#" do
             .product-list-img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .product-list-body
@@ -149,7 +153,7 @@
                     0
                 %p (税込)
         .product-list
-          = link_to "/products/1" do
+          = link_to "#" do
             .product-list-img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .product-list-body
@@ -165,11 +169,11 @@
     %h2.pickup__head ピックアップブランド
     .pickup__products
       .pickup__products__product
-        = link_to "/" do
+        = link_to "#" do
           %h3.title アーカイバ
       .product-lists
         .product-list
-          = link_to "/products/3" do
+          = link_to "#" do
             .product-list-img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .product-list-body
@@ -182,7 +186,7 @@
                     0
                 %p (税込)
         .product-list
-          = link_to "/products/2" do
+          = link_to "#" do
             .product-list-img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .product-list-body
@@ -195,7 +199,7 @@
                     0
                 %p (税込)
         .product-list
-          = link_to "/products/1" do
+          = link_to "#" do
             .product-list-img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .product-list-body
@@ -212,9 +216,9 @@
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
-      = link_to "/" do
+      = link_to "#" do
         = image_tag 'apple.png'
-      = link_to "/" do
+      = link_to "#" do
         = image_tag 'google.png'
 .footer
   %ul.contents
@@ -237,22 +241,22 @@
       %h2.content__head FURIMAを見る
       %ul
         %li
-          = link_to "/" do
+          = link_to "#" do
             カテゴリー一覧
         %li
-          = link_to "/" do
+          = link_to "#" do
             ブランド一覧
     %li.content
       %h2.content__head ヘルプ＆ガイド
       %ul
         %li
-          = link_to "/" do
+          = link_to "#" do
             FURIMAガイド
         %li
-          = link_to "/" do
+          = link_to "#" do
             FURIMAロゴ利用ガイドライン
         %li
-          = link_to "/" do
+          = link_to "#" do
             お知らせ
   .footer__logo
     = link_to "/" do

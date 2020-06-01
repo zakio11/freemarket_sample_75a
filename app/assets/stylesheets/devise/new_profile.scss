@@ -1,7 +1,5 @@
-.new{
-  min-width:700px;
-  display: flex;
-  flex-direction: column;
+.new-profile{
+  @include flex_column;
   align-items: center;
   font-size: 16px;
   overflow: scroll;
@@ -11,7 +9,7 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 50px;
-    h1{
+    h2{
       color: red;
     }
     h3{
@@ -26,20 +24,23 @@
 
   .regist{
     align-items: center;
-    width: 300px;
+    width: 400px;
     white-space: normal;
     &__require{
       display: flex;
       justify-content: start;
       h4{
-        margin-left: 10px;
         color: red;
-        font-size: 12px;
+        @include required;
+      }
+      h5{
+        color: rgb(163, 163, 163);
+        @include required;
       }
     }
 
     input{
-      width: 300px;
+      width: 400px;
       height: 40px;
       margin-bottom: 20px;
       border-radius: 5px;
@@ -61,13 +62,13 @@
       display: flex;
       justify-content: space-between;
       input{
-      width: 140px;
+      width: 190px;
       }
     }
 
     &__birthday{
       .time-box{
-        width: 90px;
+        width: 120px;
         height:40px;
         margin-bottom: 20px;
       }
@@ -75,15 +76,14 @@
   }
 
   .new-regist{
-    &__submit{
-      margin-top: 20px;
-      margin-bottom: 100px;
-      .btn{
-        width: 300px;
-        height: 50px;
-        border-radius: 1px;
-      }
-    }
+    margin-top: 20px;
+  }
+  .submit{
+    width: 400px;
+    height: 50px;
+    border-radius: 1px;
+    margin-top: 50px;
+    margin-bottom: 100px;
   }
 }
 

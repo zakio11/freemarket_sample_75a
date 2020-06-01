@@ -1,0 +1,30 @@
+.session{
+  @include flex_column;
+  overflow: scroll;
+  width: 100%;
+  background-color: #ffffff;
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  .new{
+    align-items: center;
+    .login{
+      white-space: normal;
+      input{
+        @include width;
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+    }
+
+    .login__btn{
+      input{
+        @include btn;
+      }
+    }
+    .new-regist{
+      input{
+        @include btn;
+      }
+    }
+  }
+}
