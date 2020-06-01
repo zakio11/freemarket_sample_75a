@@ -6,13 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    #if user_signned_in?
+    if user_signed_in?
     @category = Category.all.order("ancestry,id").limit(3)
     @item = Item.new
     @item.images.new
-    #else
-      #redirect_to new_user_session_path
-    #end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def category_children
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_status, :shipment_fee, :shipment_pref, :shipment_date, :price, images_attributes: [:url, :_destroy, :id])
+    params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_status_id, :shipment_fee_id, :shipment_pref_id, :shipment_date_id, :price, images_attributes: [:url, :_destroy, :id])
   end
 
   def set_item

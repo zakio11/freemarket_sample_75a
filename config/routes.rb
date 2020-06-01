@@ -7,11 +7,18 @@ Rails.application.routes.draw do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
   end
-  
+
   root 'items#index'
   get "users/signout"
-  
-  resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update]
+
+  resources :items do
+    collection do
+      get 'category_children', defaults: { format: 'json'}
+      get 'category_grandchildren', defaults: { format: 'json'}
+    end
+    resources :image
+  end
+
   resources :users, only: [:new, :create, :show, :destroy]
   resources :cards, only: [:new, :edit, :show, :destroy, :pay]
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_133829) do
+ActiveRecord::Schema.define(version: 2020_06_01_092022) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -39,28 +39,18 @@ ActiveRecord::Schema.define(version: 2020_05_31_133829) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.string "shipment_date", null: false
-    t.string "shipment_pref", null: false
+    t.string "shipment_date_id", null: false
+    t.string "shipment_pref_id", null: false
     t.bigint "category_id", null: false
     t.string "brand"
-    t.string "item_status", null: false
-    t.string "shipment_fee", null: false
+    t.string "item_status_id", null: false
+    t.string "shipment_fee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "seller_id", null: false
+    t.integer "buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "introduction", null: false
-    t.integer "price", null: false
-    t.string "shipment_date", null: false
-    t.string "shipment_pref", null: false
-    t.bigint "category_id", null: false
-    t.string "brand", null: false
-    t.string "item_status", null: false
-    t.string "shipment_fee", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
