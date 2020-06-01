@@ -1,0 +1,113 @@
+// devise,users
+@mixin flexbox {
+  display        :   flex;
+  justify-content: center;
+}
+@mixin flex_column{
+  display        :   flex;
+  flex-direction : column;
+}
+@mixin required {
+  margin-left    : 10px;
+  font-size      : 12px;
+  font-weight    : bold;
+}
+@mixin width{
+  width          : 400px;
+}
+@mixin btn {
+  width          : 400px;
+  height         : 50px;
+  border-radius  : 1px;
+  margin         : 10px 0px;
+}
+
+
+// items
+@mixin circle {
+  width          : calc(100% - 26px);
+  height         : 36px;
+  padding        : 0 0 0 5px;
+}
+@mixin name {
+  color                : #333;
+  text-decoration      : none;
+  line-height          : 32px;
+  background-position  : center right;
+  background-repeat    : no-repeat;
+  background-size      : 18px;
+  padding-right        : 30px;
+}
+@mixin item {
+  display          : flex;
+  align-items      : center;
+  color            : #333;
+  text-decoration  : none;
+  line-height      : 32px;
+}
+@mixin list {
+  color            : #333;
+  line-height      : 38px;
+  padding          : 0 0 0 16px;
+}
+@mixin angle {
+  display          : inline-block;
+  font             : normal normal normal 14px/1;
+  font-size        : inherit;
+  text-rendering   : auto;
+  -webkit-font-smoothing: antialiased;
+}
+@mixin name {
+  height           : 20px;
+  width            : 200px;
+  margin           : 12px 0px 0px 5px;
+  font-weight      : bold;
+  font-size        : 14px;
+}
+@mixin require {
+  padding           : 3px 5px;
+  background-color  : red;
+  color             : white;
+  font-weight       : bold;
+  font-size         : 13px;
+}
+@mixin form {
+  padding-left   : 10px;
+  margin-bottom  : 5px; 
+  width          : 90%;
+  height         : 50px;
+}
+
+
+// items_index
+@mixin circle {
+  width         : calc(100% - 26px);
+  height        : 36px;
+  padding       : 0 0 0 5px;
+}
+@mixin name {
+  color                : #333;
+  text-decoration      : none;
+  line-height          : 32px;
+  background-position  : center right;
+  background-repeat    : no-repeat;
+  background-size      : 18px;
+  padding-right        : 30px;
+}
+@mixin item {
+  display              : flex;
+  align-items          : center;
+  color                : #333;
+  text-decoration      : none;
+  line-height          : 32px;
+}
+@mixin list {
+  color                : #333;
+  line-height          : 38px;
+  padding              : 0 0 0 16px;
+}
+@mixin description {
+  font-size            : 18px;
+  line-height          : 1.5;
+  margin               : 16px 0 0;
+}

@@ -1,0 +1,11 @@
+=render "users/logo"
+
+.create-profile
+
+  .member-regist
+    .member-regist__title
+      %h1 申し訳ありません、エラーが発生しました。
+
+  .regist
+    .regist__require
+      = button_to 'もう一度試みる', new_user_registration_path, method: :get

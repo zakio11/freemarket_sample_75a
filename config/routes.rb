@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'items#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
 
-  resources :items do
-    collection do 
-      get 'category_children', defaults: { format: 'json'}
-      get 'category_grandchildren', defaults: { format: 'json'}
-    end
-    resources :image
+  devise_scope :user do
+    get 'profiles', to: 'users/registrations#new_profile'
+    post 'profiles', to: 'users/registrations#create_profile'
   end
-
-  resources :users
-
-
+  
+  root 'items#index'
+  get "users/signout"
+  
+  resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update]
+  resources :users, only: [:new, :create, :show, :destroy]
+  resources :cards, only: [:new, :edit, :show, :destroy, :pay]
+  
 end
