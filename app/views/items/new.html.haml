@@ -50,12 +50,12 @@
             配送料の負担
             %span 必須
           .exhibision__content__box__shipment--select
-            = f.select :shipment_fee, ['送料込み(出品者負担)', '着払い（購入者負担）'], prompt:"選択してください",class:"exhibision__content__box__shipment-fee-form"
+            = f.collection_select( :shipment_fee_id, ShipmentFee.all, :id, :name, {prompt: "選択してください"}, {class: "exhibision__content__box__shipment-fee-form"})
           .exhibision__content__box__shipment--name
             発送元の地域
             %span 必須
           .exhibision__content__box__shipment--select
-            = f.select :shipment_pref, ['北海道', '青森', '岩手', '宮城', '秋田', '山形', '福島', '茨城', '栃木', '群馬', '埼玉', '千葉', '東京', '神奈川', '新潟', '富山', '石川', '福井', '山梨', '長野', '岐阜', '静岡', '愛知', '三重', '滋賀', '京都', '大阪', '兵庫', '奈良', '和歌山', '島根', '鳥取','岡山','広島','山口','徳島','香川','愛媛','高知','福岡','佐賀','長崎','大分','熊本','宮崎','鹿児島','沖縄'], prompt:"選択してください",class:"exhibision__content__box__shipment-pref-form"
+            = f.collection_select( :shipment_pref_id, ShipmentPref.all, :id, :name, {prompt: "選択してください"}, {class: "exhibision__content__box__shipment-pref-form"})
           .exhibision__content__box__shipment--name
             発送日までの日数
             %span 必須
