@@ -1,15 +1,9 @@
-@mixin require {
-  margin-left: 10px;
-  font-size: 12px;
-}
-
 .new{
+  @include flexbox;
   overflow: scroll;
   width: 100%;
-  display: flex;
   align-items: center;
   font-size: 16px;
-  justify-content: center;
   background-color: #ffffff;
   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
 
@@ -42,11 +36,11 @@
         justify-content: start;
         h4{
           color: red;
-          @include require;
+          @include required;
         }
         h5{
           color: rgb(163, 163, 163);
-          @include require;
+          @include required;
         }
       }
 
@@ -57,14 +51,14 @@
         border-radius: 5px;
         }
 
-    .submit{
-      width: 300px;
-      height: 50px;
-      border-radius: 1px;
-      margin-bottom: 100px;
+      .submit{
+        width: 300px;
+        height: 50px;
+        border-radius: 1px;
+        margin-bottom: 100px;
+      }
     }
   }
-}
 }
 
 

@@ -4,39 +4,6 @@
   body{
     font-size: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   
-    @mixin circle {
-      width: calc(100% - 26px);
-      height: 36px;
-      padding: 0 0 0 5px;
-    }
-    @mixin name {
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
-      background-position: center right;
-      background-repeat: no-repeat;
-      background-size: 18px;
-      padding-right: 30px;
-    }
-    @mixin item {
-      display: flex;
-      align-items: center;
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
-    }
-    @mixin list {
-      color: #333;
-      line-height: 38px;
-      padding: 0 0 0 16px;
-    }
-    @mixin angle {
-      display: inline-block;
-      font: normal normal normal 14px/1;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-    }
   .header{
     display: block;
     padding: 0 60px;

@@ -1,18 +1,7 @@
-@mixin width{
-  width: 400px;
-}
-@mixin btn {
-  width: 400px;
-  height: 50px;
-  border-radius: 1px;
-  margin: 10px 0px;
-}
-
 .session{
+  @include flex_column;
   overflow: scroll;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   background-color: #ffffff;
   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
   .new{

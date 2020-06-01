@@ -1,12 +1,10 @@
 .logo{
+  @include flexbox;
   width: 100vw;
   height: 150px;
-  display: flex;
   align-items: center;
-  justify-content: center;
   &__box{
-    display: flex;
-    justify-content: center;
+    @include flexbox;
     &--image{
       width: 40%;
       height: 40%;

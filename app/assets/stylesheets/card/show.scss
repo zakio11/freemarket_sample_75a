@@ -1,29 +1,22 @@
 .card{
+  @include flex_column;
   min-width:700px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: 16px;
-  overflow: scroll;
-  &__box {
-    width: 300px;
-    height: 50px;
-    border-radius: 1px;
-    margin-top: 30px;
-    background-color: #3CCACE;
-    text-align: center;
-    padding: 15px;
+
+  .card-title{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
   }
-}
 
-.registration__btn{
-  width: 300px;
-  height: 50px;
-  border-radius: 1px;
-}
-
-.change__btn{
-  width: 300px;
-    height: 50px;
-    border-radius: 1px;
+  .card-menu{
+    input{
+      width: 300px;
+      height: 50px;
+      border-radius: 5px;
+      margin-bottom: 70px;
+    }
+  }
 }
