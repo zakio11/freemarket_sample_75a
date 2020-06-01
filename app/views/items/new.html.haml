@@ -44,7 +44,7 @@
             商品の状態
             %span 必須
           .exhibision__content__box__detail--state
-            = f.select :item_status, ['新品、未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '汚れや傷あり', '全体的に状態が悪い'], prompt:"選択してください",class:"exhibision__content__box__detail--status-form"
+            = f.collection_select( :item_status_id, ItemStatus.all, :id, :name, {prompt: "選択してください"}, {class: "exhibision__content__box__detail--status-form"})
         .exhibision__content__box__shipment
           .exhibision__content__box__shipment--name
             配送料の負担
@@ -60,7 +60,7 @@
             発送日までの日数
             %span 必須
           .exhibision__content__box__shipment--select
-            = f.select :shipment_date, ['１〜２日で発送', '２〜３日で発送', '４〜７日で発送'], prompt:"選択してください",class:"exhibision__content__box__shipment--date-form"
+            = f.collection_select( :shipment_date_id, ShipmentDate.all, :id, :name, {prompt: "選択してください"}, {class: "exhibision__content__box__shipment--date-form"})
         .exhibision__content__box__price
           .exhibision__content__box__price--name
             販売価格
