@@ -1,0 +1,15 @@
+=render "users/logo"
+
+.create-profile
+  .regist-menu
+    %h1 会員情報
+    %h2 詳細情報
+    %h3 完了
+
+  .member-regist
+    .member-regist__title
+      %h1 登録完了！
+
+  .regist
+    .regist__require
+      = button_to 'トップへ戻る', root_path, method: :get

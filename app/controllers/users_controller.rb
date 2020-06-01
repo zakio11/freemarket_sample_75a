@@ -5,12 +5,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
   end
-
 
 
   def destroy
@@ -18,13 +17,9 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'ログアウトしました。'
   end
 
-
-  def logout
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:email, :nickname)
   end
 end

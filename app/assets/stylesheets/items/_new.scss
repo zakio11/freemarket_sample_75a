@@ -1,26 +1,3 @@
-@mixin name {
-  height      : 20px;
-  width       : 200px;
-  margin : 12px 0px 0px 5px;
-  font-weight : bold;
-  font-size   : 14px;
-}
-
-@mixin require {
-  padding           : 3px 5px;
-  background-color  : red;
-  color             : white;
-  font-weight       : bold;
-  font-size         : 13px;
-}
-
-@mixin form {
-  padding-left: 10px;
-  margin-bottom  : 5px; 
-  width          : 90%;
-  height         : 50px;
-}
-
 .exhibision {
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   padding: 30px;
@@ -29,8 +6,7 @@
   font-family: inherit;
   background-color: #F5F5F5;
   .exhibision__top {
-    display: flex;
-    justify-content: center;
+    @include flexbox;
     align-items: center;
     width: 100%;
     height: 56px;

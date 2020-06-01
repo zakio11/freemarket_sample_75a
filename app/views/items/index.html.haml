@@ -21,10 +21,16 @@
           = link_to "#" do
             ブランド
       %ul.lists__right
-        %li.lists__right__item-login
-          = link_to "ログイン", new_user_registration_path
-        %li.lists__right__item-new
-          = link_to "新規会員登録", new_user_session_path
+        - if user_signed_in?
+          
+          %li.lists__right__item-new
+            = link_to "マイページ", "users/show"
+
+        - else  
+          %li.lists__right__item-login
+            = link_to "ログイン", new_user_session_path
+          %li.lists__right__item-new
+            = link_to "新規会員登録", new_user_registration_path
 
 .main
   .main__view
