@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, only: [:destory]
 
   def index
     @items = Item.includes(:images)
@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     #if user_signned_in?
+    @category = Category.all.order("ancestry,id").limit(3)
     @item = Item.new
     @item.images.new
     #else
@@ -14,9 +15,18 @@ class ItemsController < ApplicationController
     #end
   end
 
+  def category_children
+    @category_children = Category.find(params[:productcategory]).children 
+  end
+    
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:productcategory]).children
+  end
+
   def create
+    @category = Category.all.order("ancestry,id").limit(3)
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       render :new
@@ -41,7 +51,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :introdction, :price, :shipment_date, :shipment_pref, :category, :brand, :item_status, :shipment_fee, images_attributes: [:url, :_destory, :id])
+    params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_status, :shipment_fee, :shipment_pref, :shipment_date, :price, images_attributes: [:url, :_destroy, :id])
   end
 
   def set_item

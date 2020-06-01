@@ -13,7 +13,7 @@
           #image-box-1
             .item-num-0#image-box__container
               = f.fields_for :images do |i|
-                = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+                = i.file_field :url, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   %i.fas.fa-camera
 
@@ -34,17 +34,17 @@
             カテゴリー
             %span 必須
           .exhibision__content__box__detail--select
-            = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"exhibision__content__box__detail--status-form"}
+            = f.collection_select :category_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "exhibision__content__box__detail--select--form"}
           .exhibision__content__box__detail--brand
             ブランド
             %span 任意
           .exhibision__content__box__detail--form
-            = f.text_field :name, class:"exhibision__content__box__detail--form--input", placeholder: "例) シャネル"
+            = f.text_field :brand, class:"exhibision__content__box__detail--form--input", placeholder: "例) シャネル"
           .exhibision__content__box__detail--name
             商品の状態
             %span 必須
-          .exhibision__content__box__detail--select
-            = f.select :itemstatus, ['新品、未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '汚れや傷あり', '全体的に状態が悪い'], prompt:"選択してください",class:"exhibision__content__box__detail--status-form"
+          .exhibision__content__box__detail--state
+            = f.select :item_status, ['新品、未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '汚れや傷あり', '全体的に状態が悪い'], prompt:"選択してください",class:"exhibision__content__box__detail--status-form"
         .exhibision__content__box__shipment
           .exhibision__content__box__shipment--name
             配送料の負担
@@ -60,14 +60,14 @@
             発送日までの日数
             %span 必須
           .exhibision__content__box__shipment--select
-            = f.select :itemstatus, ['１〜２日で発送', '２〜３日で発送', '４〜７日で発送'], prompt:"選択してください",class:"exhibision__content__box__shipment--date-form"
+            = f.select :shipment_date, ['１〜２日で発送', '２〜３日で発送', '４〜７日で発送'], prompt:"選択してください",class:"exhibision__content__box__shipment--date-form"
         .exhibision__content__box__price
           .exhibision__content__box__price--name
             販売価格
             %span 必須
           .exhibision__content__box__price--select
             ￥
-            = f.number_field :price_id ,placeholder: "0"
+            = f.number_field :price ,placeholder: "0"
         .exhibision__content__box__sent  
           = f.submit "出品する"
         

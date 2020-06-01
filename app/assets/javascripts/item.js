@@ -31,7 +31,7 @@ $(function(){
   });
   $(document).on("click", '.item-image__operetion--delete', function(){
     let target_image = $(this).parent().parent()
-    let target_name = $(target_image).data('image')
+    let target_name = $(target_image).data('url')
     if(file_field.files.length==1){
       $('input[type=file]').val(null)
       dataBox.clearData();
