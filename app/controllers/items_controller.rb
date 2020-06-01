@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signned_in?
+    if user_signed_in?
     @category = Category.all.order("ancestry,id").limit(3)
     @item = Item.new
     @item.images.new
