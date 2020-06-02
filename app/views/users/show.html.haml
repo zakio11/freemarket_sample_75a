@@ -1,0 +1,35 @@
+=render "users/logo"
+
+.mypage
+  .content
+    .banner
+      = image_tag "material/icon/member_photo_noimage_thumb.png", class: "image1"
+
+    .nav
+      = button_to '出品する',               "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '下書き一覧',             "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '出品した商品-出品中',     "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '出品した商品-取引中',     "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '出品した商品-売却済み',   "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '購入した商品-取引中',     "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '購入した商品-過去の取引', "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '評価一覧',              "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to 'プロフィール',          "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '支払い方法',            card_path,method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to 'メール/パスワード',      "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '本人情報',              "#",method: :get, class: 'mypage__nav--btn'
+    .nav
+      = button_to '電話番号の確認',         "#",method: :get, class: 'mypage__nav--btn'
+    .nav 
+      = button_to 'ログアウト',             "signout", method: :get, class: 'mypage__nav--btn'

@@ -8,8 +8,21 @@ Bundler.require(*Rails.groups)
 
 module FreemarketSample75a
   class Application < Rails::Application
+    config.i18n.default_locale = :ja
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+
+    private
+
+    def after_sign_out_path_for(resource_or_scope)
+      if resource_or_scope == :admin_admin_user
+        new_admin_admin_user_session_path
+      else
+        new_user_session_path
+      end
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

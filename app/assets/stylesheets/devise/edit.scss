@@ -1,43 +1,30 @@
-.edit{
-  min-width:700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 16px;
+.session{
+  @include flex_column;
   overflow: scroll;
-  
-  .new-regist-btn{
-    width: 300px;
-    height: 50px;
-    border-radius: 1px;
-    margin-bottom: 70px;
-  }
-
-  .login{
+  width: 100%;
+  background-color: #ffffff;
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  .new{
     align-items: center;
-    width: 300px;
-    white-space: normal;
-    input{
-      width: 300px;
-      height: 40px;;
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-
-    &__form{
-      display: flex;
-      justify-content: space-between;
+    .login{
+      white-space: normal;
       input{
-      width: 140px;
+        @include width;
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 5px;
       }
     }
-  }
 
-  .login-btn{
-    width: 300px;
-    height: 50px;
-    border-radius: 1px;
-    margin-top: 60px;
-    margin-bottom: 70px;
+    .login__btn{
+      input{
+        @include btn;
+      }
+    }
+    .new-regist{
+      input{
+        @include btn;
+      }
+    }
   }
 }
