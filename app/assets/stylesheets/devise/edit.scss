@@ -1,8 +1,9 @@
 .session{
   @include flex_column;
+  margin-top: 100px;
   overflow: scroll;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #F5F5F5;
   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
   .new{
     align-items: center;
@@ -15,15 +16,15 @@
         border-radius: 5px;
       }
     }
-
-    .login__btn{
+    .new-regist{
       input{
         @include btn;
       }
     }
-    .new-regist{
+    .login__btn{
       input{
         @include btn;
+        margin-bottom: 100px;
       }
     }
   }

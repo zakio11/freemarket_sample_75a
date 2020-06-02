@@ -1,7 +1,7 @@
 .exhibision
   .exhibision__top
-    = link_to root_path do
-      = image_tag 'material/logo/logo.png'
+    =render "users/logo"
+
   .exhibision__content
     = form_with model: @item do |f|
       .exhibision__content__box
@@ -70,4 +70,6 @@
             = f.number_field :price ,placeholder: "0"
         .exhibision__content__box__sent  
           = f.submit "出品する"
-        
+
+
+= render "users/footer"        
