@@ -143,6 +143,11 @@
                       %i.fa.fa-star.likeIcon
                       0
                   %p (税込)
+                  -if item.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  
   .pickup
     %h2.pickup__head ピックアップブランド
     .pickup__products
