@@ -3,8 +3,7 @@
   padding: 30px;
   width: 100%;
   height: 100%;
-  font-family: inherit;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   .exhibision__top {
     @include flexbox;
     align-items: center;
@@ -16,18 +15,16 @@
     }
   }
   .exhibision__content {
-    background-color: white;
-    width: 70%;
-    max-width: 700px;
-    min-width: 450px;
+    max-width: 750px;
+    min-width: 600px;
     height: 90%;
     margin: 0 auto;
-    padding-top: 30px;
-    padding-left: 50px;
+    padding: 30px 50px;
     .exhibision__content__box {
-      .exhibision__content__box__iamge {
+      .exhibision__content__box__image {
         border-bottom: 1px solid #F5F5F5;
-        height: 200px;
+        min-height: 200px;
+        max-height: 420px;
         width: 100%;
         &--name {
           @include name;
@@ -35,18 +32,23 @@
             @include require;
           }
         }
-        &--form {
-          padding-top: 30px;
-          margin: 10px;
-          width: 90%;
-          height: 110px;
-          background-color: #F5F5F5;
+        p {
+          font-size: 14px;
+          padding: 8px;
+        }
+        #image-box-1{
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 90%;
+          min-width: 550px;
+          max-height: 300px;
+          min-height: 180px;
+          border: 1px dashed #ccc;
+          background: #f5f5f5;
+          justify-content: center;
+          align-items: center;
           i {
-            width: 90%;
-            height: 110px;
-            border: 1px solid #F5F5F5;
             font-size: 24px;
-            text-align: center;
             cursor: pointer;
           }
         }
@@ -79,7 +81,8 @@
       }
       .exhibision__content__box__detail {
         border-bottom: 1px solid #F5F5F5;
-        height: 350px;
+        max-height: 700pzpx;
+        min-width: 350px;
         width: 100%;
         p {
           color: #989898;
@@ -105,6 +108,12 @@
             color: white;
             font-weight: bold;
             font-size: 13px;
+          }
+        }
+        &--state {
+          margin: 10px 12px 20px;
+          select {
+            @include form;
           }
         }
         &--form {
