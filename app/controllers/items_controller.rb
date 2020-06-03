@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:destory]
+  before_action :set_item, only: [:edit, :update, :show, :destory]
 
   def index
     @items = Item.includes(:images)
@@ -36,15 +36,25 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.all.order("ancestry,id").limit(13)
+    @category_parent_array = Category.where(ancestry: nil)
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
   end
 
   def update
     if @item.update(item_params)
+      flash[:notice] = '編集できました'
       redirect_to root_path
     else
       render :edit
+      flash[:alert] = '編集できませんでした'
     end
   end
+
+  def show
+    @category = Category.all.order("ancestry,id").limit(13)
+  end  
 
   def destory
     @item.destory
@@ -59,9 +69,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-  def show
-
-  end
-
 end

@@ -109,6 +109,16 @@
               %tr
                 %th 発送日の目安
                 %td 4~7日で目安
+            - if user_signed_in? && current_user.id == @item.seller_id
+              = link_to edit_item_path(@item), class: "btn"  do
+                編集する
+              ／
+              = link_to "#",method: :delete, class: "btn"  do
+                削除する
+            - else
+              .buy__link
+                = link_to  "購入画面へすすむ", "#" 
+
           .option
             %ul
               %li#likebtn.optional-btn.likebtn
