@@ -29,9 +29,9 @@
             = link_to "削除", item_path(@item.id), method: :delete
         - else
           %li.lists__right--item-login
-            = link_to "ログイン", new_user_registration_path
+            = link_to "ログイン", new_user_session_path
           %li.lists__right--item-new
-            = link_to "新規会員登録", new_user_session_path
+            = link_to "新規会員登録", new_user_registration_path
             = link_to "購入画面に進む",root_path
 %nav.bread-line
   %ul
