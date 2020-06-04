@@ -68,16 +68,13 @@
             %ul
               %li
                 = image_tag @item.images.first.url.url
-                %ul
-                  %li
-                    = image_tag @item.images.first.url.url
-                  %li
-                    = image_tag @item.images.second.url.url
-                  %li
-                    = image_tag @item.images.third.url.url
+                .image-prev
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.url.url, data: {index: i}
           .item-price
             %span.price
-              = @item.price
+              ￥
+              = @item.price.to_s(:delimited)
             .item-price__detail
               %span.tax (税込み)
               %span.sent 送料込み
@@ -93,13 +90,13 @@
                 %th カテゴリー
                 %td
                   = link_to "#" do
-                    ベビー・キッズ
+                    = @item.category.parent.parent.name
                   %br
                   = link_to "#" do
-                    ベビー服(男女兼用)
+                    = @item.category.parent.name
                   %br
                   = link_to "#" do
-                    アウター
+                    = @item.category.name
               %tr
                 %th ブランド
                 %td

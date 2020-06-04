@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:destory, :show, :edit]
+  before_action :set_item, only: [:edit, :update, :show, :destory]
 
   def index
     @items = Item.includes(:images)
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def create
     @category = Category.all.order("ancestry,id").limit(13)
-    @item = Item.new(item_params)
+    @item = Item.new(create_params)
     if @item.save
       flash[:notice] = '出品できました'
       redirect_to root_path
@@ -36,22 +36,35 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.all.order("ancestry,id").limit(13)
+    @category_parent_array = Category.where(ancestry: nil)
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
   end
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '編集完了しました'
     else
-      render :edit
+      flash[:alert] = '編集できませんでした'
+      redirect_to action: "edit"
     end
   end
 
   def show
-  end
+    @category = Category.all.order("ancestry,id").limit(13)
+  end  
 
-  def destory
-    @item.destory
-    redirect_to root_path
+  def destroy
+    if user_signed_in? && current_user.id == @item.seller_id
+      if @item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path, alert: '削除できませんでした'
+      end
+    else
+      redirect_to root_path, alert: '権限がありません'
+    end
   end
 
   private
@@ -62,6 +75,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
 end
