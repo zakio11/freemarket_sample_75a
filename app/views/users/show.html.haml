@@ -5,6 +5,7 @@
     .banner
       = image_tag "material/icon/member_photo_noimage_thumb.png", class: "image1"
 
+    = current_user.nickname
     .nav
       = button_to '出品する',               "#",method: :get, class: 'mypage__nav--btn'
     .nav
