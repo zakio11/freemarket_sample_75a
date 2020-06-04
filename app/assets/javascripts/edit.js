@@ -35,21 +35,17 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
     if (fileIndex.length == 10) {
-      $(".js-file_group").css('display', 'none')   
+      $("#item_item_images_attributes_11_url").css('display', 'none')   
     }
   });
 
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
-    var targetCheckBox = "#destroy-" + targetIndex;
-    const hiddenCheck = $(targetCheckBox);
-    if (hiddenCheck.length) {
-      hiddenCheck.prop('checked', true);
-    }
-    var id_str = '#image-' + targetIndex;
-    var isExist = $(id_str).length;
-    if(isExist) $(this).parent().remove();
-    $(id_str).remove();
-    if ($('.js-file').length == 0) $('#file-box').append(buildFileField(fileIndex[0]));
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });

@@ -180,22 +180,20 @@
                   img{
                     object-fit: cover;
                     height: 346px;
-                    width: 100%;
+                    width: auto;
                     vertical-align: bottom;
                   }
-                  ul{
-                    display: flex;
+                  .image-prev{
+                    width: 620px;
+                    overflow: scroll;
                     justify-content: center;
-                    margin-top: 10px;
-                    li{
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                      img{
-                        object-fit: cover;
-                        height: 100px;
-                      }
+                    display: flex;
+                    img {
+                      width: 100px;
+                      height: 100px;
+                      margin: 3px;
                     }
-                  }
+                  }  
                 }
               }
             }

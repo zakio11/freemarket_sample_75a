@@ -14,8 +14,7 @@
             #previews
               - if @item.persisted?
                 - @item.images.each_with_index do |image, i|
-                  - id_str = 'image-' + (i).to_s
-                  = image_tag image.url.url, id: id_str ,data: {index: i}, width: '100', height: '100'
+                  = image_tag image.url.url, data: {index: i}, width: '100', height: '100'
             #file-box
               = f.fields_for :images do |image|
                 .js-file_group{data: {index: image.index}}
@@ -52,7 +51,13 @@
             カテゴリー
             %span 必須
           .exhibision__content__box__detail--select
-            = f.collection_select :category_id, @category, :id, :name,{prompt: "選択してください"},{ id: "category_select", class: "exhibision__content__box__detail--select--form"}
+            = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c[:name], c[:id],{'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.parent.id), {}, {class: 'exhibision__content__box__detail--select__box', id: 'category_select'}
+            #children_wrapper.exhibision__content__box__detail--select
+              = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'exhibision__content__box__detail--select__box', id: 'child_category'}
+            #grandchildren_wrapper.exhibision__content__box__detail--select
+              = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'exhibision__content__box__detail--select__box', id: 'grandchild_category'}
+          
+          
           .exhibision__content__box__detail--brand
             ブランド
             %span 任意
