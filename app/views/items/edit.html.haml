@@ -3,7 +3,7 @@
     =render "users/logo"
 
   .exhibision__content
-    = form_with model: @item do |f|
+    = form_with model: @item, local: true do |f|
       .exhibision__content__box
         .exhibision__content__box__image
           .exhibision__content__box__image--name
@@ -18,9 +18,8 @@
             #file-box
               = f.fields_for :images do |image|
                 .js-file_group{data: {index: image.index}}
-
                   = image.label :image, data: {index: image.index} do
-                    = image.file_field :image, class: 'js-file '
+                    = image.file_field :url, class: 'js-file '
                   %span.js-remove 削除
 
                 - if @item.persisted?
@@ -33,7 +32,6 @@
                   = f.label :image, data: {index: lastIndex} do
                     = f.file_field :url, name: "item[images_attributes][#{lastIndex}][url]", class: 'js-file '
                   %span.js-remove 削除
-
         .exhibision__content__box--item
           .exhibision__content__box--item--name
             商品名
@@ -56,8 +54,6 @@
               = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'exhibision__content__box__detail--select__box', id: 'child_category'}
             #grandchildren_wrapper.exhibision__content__box__detail--select
               = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'exhibision__content__box__detail--select__box', id: 'grandchild_category'}
-          
-          
           .exhibision__content__box__detail--brand
             ブランド
             %span 任意
@@ -92,7 +88,7 @@
             ￥
             = f.number_field :price ,placeholder: "0"
         .exhibision__content__box__sent  
-          = f.submit "出品する"
+          = f.submit "編集する"
 
 
 = render "users/footer"        

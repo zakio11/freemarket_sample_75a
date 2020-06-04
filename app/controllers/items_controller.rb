@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def create
     @category = Category.all.order("ancestry,id").limit(13)
-    @item = Item.new(item_params)
+    @item = Item.new(create_params)
     if @item.save
       flash[:notice] = '出品できました'
       redirect_to root_path
@@ -40,16 +40,14 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil)
     @category_child_array = @item.category.parent.parent.children
     @category_grandchild_array = @item.category.parent.children
-
   end
 
   def update
     if @item.update(item_params)
-      flash[:notice] = '編集できました'
-      redirect_to root_path
+      redirect_to root_path, notice: '編集完了しました'
     else
-      render :edit
       flash[:alert] = '編集できませんでした'
+      redirect_to action: "edit"
     end
   end
 
@@ -57,7 +55,7 @@ class ItemsController < ApplicationController
     @category = Category.all.order("ancestry,id").limit(13)
   end  
 
-def destroy
+  def destroy
     if user_signed_in? && current_user.id == @item.seller_id
       if @item.destroy
         redirect_to root_path, notice: '削除が完了しました'
