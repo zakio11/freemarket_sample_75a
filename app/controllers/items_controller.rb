@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil)
     @category_child_array = @item.category.parent.parent.children
     @category_grandchild_array = @item.category.parent.children
+
   end
 
   def update
@@ -56,9 +57,16 @@ class ItemsController < ApplicationController
     @category = Category.all.order("ancestry,id").limit(13)
   end  
 
-  def destory
-    @item.destory
-    redirect_to root_path
+def destroy
+    if user_signed_in? && current_user.id == @item.seller_id
+      if @item.destroy
+        redirect_to root_path, notice: '削除が完了しました'
+      else
+        redirect_to root_path, alert: '削除できませんでした'
+      end
+    else
+      redirect_to root_path, alert: '権限がありません'
+    end
   end
 
   private
