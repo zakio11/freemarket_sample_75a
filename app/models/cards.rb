@@ -1,2 +1,2 @@
-class Card < ApplicationRecord
+class Cards < ApplicationRecord
 end
