@@ -24,8 +24,9 @@
       .exhibision__content__box__image {
         border-bottom: 1px solid #F5F5F5;
         min-height: 200px;
-        max-height: 420px;
+        max-height: 820px;
         width: 100%;
+        margin-bottom :20px;
         &--name {
           @include name;
           span {
@@ -81,7 +82,7 @@
       }
       .exhibision__content__box__detail {
         border-bottom: 1px solid #F5F5F5;
-        max-height: 700pzpx;
+        max-height: 700px;
         min-width: 350px;
         width: 100%;
         p {
@@ -186,6 +187,20 @@
           cursor: pointer;
         }
       }
+    }
+  }
+}
+
+#file-box{
+  .js-file_group{
+    input {
+      margin: 3px;
+      font-size: 14px;
+    }
+    .js-remove{
+      @include require;
+      cursor: pointer;
+      padding: 3px;
     }
   }
 }

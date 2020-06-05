@@ -22,7 +22,6 @@
             ブランド
       %ul.lists__right
         - if user_signed_in? && current_user.id == @item.seller_id
-
           %li.lists__right__item-new
             = link_to "マイページ", "/users/show"
             = link_to "編集", edit_item_path(@item.id)
@@ -68,13 +67,13 @@
             %ul
               %li
                 = image_tag @item.images.first.url.url
-                .image_prev
-                  - @item.images.each_with_index do |image,i|
+                .image-prev
+                  - @item.images.each_with_index do |image, i|
                     = image_tag image.url.url, data: {index: i}
-                
           .item-price
             %span.price
-              = @item.price
+              ￥
+              = @item.price.to_s(:delimited)
             .item-price__detail
               %span.tax (税込み)
               %span.sent 送料込み
@@ -90,13 +89,13 @@
                 %th カテゴリー
                 %td
                   = link_to "#" do
-                    ベビー・キッズ
+                    = @item.category.parent.parent.name
                   %br
                   = link_to "#" do
-                    ベビー服(男女兼用)
+                    = @item.category.parent.name
                   %br
                   = link_to "#" do
-                    アウター
+                    = @item.category.name
               %tr
                 %th ブランド
                 %td
