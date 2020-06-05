@@ -1,3 +1,6 @@
+=render "users/logo"
+
+
 .buy-content__title
   %h2 購入内容の確認
   .buy-content__item
@@ -39,10 +42,20 @@
       .user-info-update
         = link_to "変更する","#", calss:"update-btn"
       .user-info-text
-        〒111-1111
+        〒
+        = current_user.profile[:post_number]
         %br
-        大阪府大阪市北区〇〇1-11
+        = current_user.profile[:prefecture]
+        = current_user.profile[:city]
+        = current_user.profile[:house_number]
+        = current_user.profile[:building_name]
         %br
-        山田太郎
-        = form_tag(action: :pay, method: :post) do
-          %button.buy-button{type:"submit"} 購入する
+        = current_user.profile[:first_name]
+        = current_user.profile[:family_name]
+
+        = form_with(action: :pay, method: :post) do
+          %button.buy-button{type:"submit_btn"} 購入する
+
+
+.footer
+= render "users/footer"

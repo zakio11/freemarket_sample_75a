@@ -12,7 +12,6 @@ class BuyersController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id) 
-      #カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end

@@ -14,18 +14,25 @@ Rails.application.routes.draw do
   get "cards/menu"
   get 'buyers/done'
 
+
   resources :items do
     collection do
       get 'category_children', defaults: { format: 'json'}
       get 'category_grandchildren', defaults: { format: 'json'}
     end
     resources :image
-
     resources :buyers, only: [:index]
 
   end
 
   resources :users, only: [:new, :create, :show, :destroy]
-  resources :cards, only: [:new, :edit, :show, :destroy, :pay]
+
+  resources :cards, only: [:new, :show]do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
   
 end
