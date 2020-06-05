@@ -22,7 +22,6 @@
             ブランド
       %ul.lists__right
         - if user_signed_in? && current_user.id == @item.seller_id
-
           %li.lists__right__item-new
             = link_to "マイページ", "/users/show"
             = link_to "編集", edit_item_path(@item.id)

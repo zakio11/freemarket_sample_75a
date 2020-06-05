@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :show, :destory]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
     @items = Item.includes(:images)
@@ -56,14 +56,10 @@ class ItemsController < ApplicationController
   end  
 
   def destroy
-    if user_signed_in? && current_user.id == @item.seller_id
-      if @item.destroy
-        redirect_to root_path, notice: '削除が完了しました'
-      else
-        redirect_to root_path, alert: '削除できませんでした'
-      end
+    if @item.destroy
+      redirect_to root_path, notice: '削除が完了しました'
     else
-      redirect_to root_path, alert: '権限がありません'
+      redirect_to root_path, alert: '削除できませんでした'
     end
   end
 
