@@ -28,11 +28,26 @@ class CardsController < ApplicationController
   end
 
   def delete
-    
+    cards = Cards.where(user_id: current_user.id).first
+    if card.blank?
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(cards.customer_id)
+      customer.delete
+      cards.delete
+    end
+      redirect_to action: "new"
   end
 
 
   def show
-    
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(cards.customer_id)
+      @default_cards_information = customer.cards.retrieve(cards.cards_id)
+    end
   end
 end

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
   get "users/signout"
+  get "items/edit"
+  get "cards/menu"
+  get 'buyers/done'
 
   resources :items do
     collection do
@@ -17,6 +20,9 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: { format: 'json'}
     end
     resources :image
+
+    resources :buyers, only: [:index]
+
   end
 
   resources :users, only: [:new, :create, :show, :destroy]

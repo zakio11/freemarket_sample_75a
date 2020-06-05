@@ -51,6 +51,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+  
   def show
     @category = Category.all.order("ancestry,id").limit(13)
   end  
