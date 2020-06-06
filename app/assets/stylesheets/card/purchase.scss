@@ -1,0 +1,37 @@
+.buy{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 50px auto;
+  background-color:#fff;
+  .buy-item{
+    margin: 10px auto;
+    &__title{
+      font-size: 40px;
+      margin: 30px auto;
+    }
+    &__name{
+      font-size: 30px;
+      margin: 10px auto;
+      
+    }
+    &__card{
+      width: 300px;
+    }
+    &__profile{
+      width: 300px;
+    }
+    .buy-button{
+      text-decoration: none;
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 100px;
+      padding: 5px 120px;
+      margin: 30px 0px;
+    }
+  }
+
+}

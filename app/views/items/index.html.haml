@@ -24,7 +24,7 @@
         - if user_signed_in?
           
           %li.lists__right__item-new
-            = link_to "マイページ", "users/show"
+            = link_to "#{current_user[:nickname]}のマイページ", "users/show"
 
         - else  
           %li.lists__right__item-login

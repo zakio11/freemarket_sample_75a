@@ -2,10 +2,10 @@
 
 %label 登録クレジットカード情報(show,delete)
 %br
-= "**** **** **** " + @default_cards_information.last4
+= "**** **** **** " + @customer_card.last4
 %br
-- exp_month = @default_cards_information.exp_month.to_s
-- exp_year = @default_cards_information.exp_year.to_s.slice(2,3)
+- exp_month = @customer_card.exp_month.to_s
+- exp_year = @customer_card.exp_year.to_s.slice(2,3)
 = exp_month + " / " + exp_year
 = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
   %input{ type: "hidden", name: "card_id", value: "" }

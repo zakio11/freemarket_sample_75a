@@ -2,11 +2,11 @@
 
 .card
   .card-title
-    %h1 登録クレジットカード情報
+    %h1 クレジットカード情報
 
   .card-menu
     .card__regist
-      = button_to '登録する', new_card_path, method: :get
+      = button_to '登録・削除', new_card_path, method: :get
 
 
 = render "users/footer"
