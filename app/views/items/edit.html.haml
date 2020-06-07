@@ -18,19 +18,16 @@
             #file-box
               = f.fields_for :images do |image|
                 .js-file_group{data: {index: image.index}}
-                  = image.label :image, data: {index: image.index} do
-                    = image.file_field :url, class: 'js-file '
+                  = image.file_field :url, class: 'js-file '
                   %span.js-remove 削除
 
                 - if @item.persisted?
-                  - destroy_id_str = 'destroy-' + (image.index).to_s
-                  = image.check_box :_destroy, data: {index: image.index}, class: 'hidden-destroy', id: destroy_id_str
+                  = image.check_box :_destroy, data: {index: image.index}, class: 'hidden-destroy'
 
               - if @item.persisted?
                 - lastIndex = @item.images.count
-                .js-file_group{"data-index": "#{lastIndex}"}
-                  = f.label :image, data: {index: lastIndex} do
-                    = f.file_field :url, name: "item[images_attributes][#{lastIndex}][url]", class: 'js-file '
+                .js-file_group{data: {index: @item.images.count}}
+                  = f.file_field :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file '
                   %span.js-remove 削除
         .exhibision__content__box--item
           .exhibision__content__box--item--name
