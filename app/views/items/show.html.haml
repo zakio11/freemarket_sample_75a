@@ -137,7 +137,7 @@
                   = link_to "削除", item_path(@item.id), method: :delete
               - else
                 -if @item.buyer_id.present? 
-                  .itembtn__buy
+                  .itembtn__sold
                     SOLD
                 -else
                   .itembtn__buy

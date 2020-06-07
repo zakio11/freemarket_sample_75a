@@ -172,6 +172,10 @@
                       %i.fa.fa-star.likeIcon
                       0
                   %p (税込)
+                  -if item.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
 .banner
   .inner
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ

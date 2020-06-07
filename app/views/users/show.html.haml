@@ -8,7 +8,7 @@
     .username
       = current_user[:nickname] 
     .nav
-      = button_to '出品する',               "#",method: :get, class: 'mypage__nav--btn'
+      = button_to '出品する',               new_item_path,method: :get, class: 'mypage__nav--btn'
     .nav
       = button_to '下書き一覧',             "#",method: :get, class: 'mypage__nav--btn'
     .nav

@@ -78,14 +78,12 @@ class CardsController < ApplicationController
       flash[:alert] = '購入にはクレジットカード登録が必要です'
       redirect_to new_card_path
     else
-      # card = current_user.credit_card
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
-      amount: @item.price,          #支払金額
-      customer: card.customer_id,   #顧客ID
+      amount: @item.price,
+      customer: card.customer_id,
       currency: 'jpy', 
       )
-
       if @item.update(buyer_id: current_user.id)
         redirect_to done_item_cards_path(@item.id)
       else
