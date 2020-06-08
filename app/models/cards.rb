@@ -1,2 +1,3 @@
-class Card < ApplicationRecord
+class Cards < ApplicationRecord
+  belongs_to :user
 end
