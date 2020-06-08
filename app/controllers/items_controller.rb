@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   def create
     @category = Category.all.order("ancestry,id").limit(13)
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       flash[:notice] = '出品できました'
       redirect_to root_path
     else
@@ -56,6 +56,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+  
   def show
     @category = Category.all.order("ancestry,id").limit(13)
   end  

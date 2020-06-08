@@ -5,8 +5,10 @@
     .banner
       = image_tag "material/icon/member_photo_noimage_thumb.png", class: "image1"
 
+    .username
+      = "#{current_user[:nickname]}のマイページ" 
     .nav
-      = button_to '出品する',               "#",method: :get, class: 'mypage__nav--btn'
+      = button_to '出品する',               new_item_path,method: :get, class: 'mypage__nav--btn'
     .nav
       = button_to '下書き一覧',             "#",method: :get, class: 'mypage__nav--btn'
     .nav
@@ -24,7 +26,7 @@
     .nav
       = button_to 'プロフィール',          "#",method: :get, class: 'mypage__nav--btn'
     .nav
-      = button_to '支払い方法',            card_path,method: :get, class: 'mypage__nav--btn'
+      = button_to '支払い方法',            "/cards/menu",method: :get, class: 'mypage__nav--btn'
     .nav
       = button_to 'メール/パスワード',      "#",method: :get, class: 'mypage__nav--btn'
     .nav

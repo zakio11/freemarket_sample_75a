@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root 'items#index'
   get "users/signout"
+  get "items/edit"
+
 
   resources :items do
     collection do
@@ -17,9 +19,25 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: { format: 'json'}
     end
     resources :image
+
+    resources :cards, only: :purchase do
+      collection do
+        get "purchase"
+        post "buy"
+        get "done"
+      end
+    end
   end
 
   resources :users, only: [:new, :create, :show, :destroy]
-  resources :cards, only: [:new, :edit, :show, :destroy, :pay]
-  
+
+  resources :cards, only: [:new, :show]do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      get "show"
+      get "menu"
+    end
+  end
+
 end

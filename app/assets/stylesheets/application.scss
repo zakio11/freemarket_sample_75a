@@ -1,18 +1,19 @@
 @import "modules/reset";
 @import "modules/mixins";
 @import "modules/logo";
-@import "modules/footer";
 @import "devise/new";
 @import "devise/new_profile";
 @import "devise/create_profile";
-@import "devise/edit";
+@import "devise/login";
 @import "users/show";
 @import "users/signout";
 @import "items/show";
 @import "items/index";
 @import "items/new";
-@import "card/show";
+@import "card/menu";
+@import "card/new";
+@import "card/purchase";
+@import "card/done";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/flash.scss";
 

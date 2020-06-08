@@ -288,6 +288,28 @@
                 }
               }
             }
+            .itembtn{
+              display: flex;
+              justify-content: space-around;
+              height: 100px;
+              align-items: center;
+              margin-top: 20px;
+              a{
+                text-decoration: none;
+                line-height: 48px;
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 100px;
+                padding: 10px 40px;
+              }
+              &__sold{
+                color: red;
+                font-size: 40px;
+                font-weight: bold;
+              }
+            }
           }
           .comment-box{
             padding: 24px;
