@@ -6,7 +6,7 @@
       = image_tag "material/icon/member_photo_noimage_thumb.png", class: "image1"
 
     .username
-      = current_user[:nickname] 
+      = "#{current_user[:nickname]}のマイページ" 
     .nav
       = button_to '出品する',               new_item_path,method: :get, class: 'mypage__nav--btn'
     .nav
@@ -35,3 +35,6 @@
       = button_to '電話番号の確認',         "#",method: :get, class: 'mypage__nav--btn'
     .nav 
       = button_to 'ログアウト',             "signout", method: :get, class: 'mypage__nav--btn'
+
+
+= render "users/footer"

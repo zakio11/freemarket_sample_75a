@@ -91,6 +91,7 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Cards.find_by(user_id: current_user.id)
+    @card = Cards.where(user_id: current_user.id).first
   end
 
   def set_item

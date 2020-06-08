@@ -1,17 +1,14 @@
 =render "users/logo"
 
 
-.buy
-  .buy-item
-    .buy-item__title
-      %h2 購入完了
+.done-item
+  .done-item__title
+    %h2 購入完了
   
-  .buy-item
-    .buy-item__card
-      %h3 商品到着までお待ちください。
+  .done-item__comment
+    %h3 商品到着までお待ちください。
     
-
-  .buy-item
+  .done-item__btn
     = link_to "topへ戻る", root_path
 
 =render "users/footer"

@@ -14,4 +14,5 @@ class Item < ApplicationRecord
   validates :introduction,length: { in: 1..1000 }
   validates :price, numericality: { less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }
   validates :category_id, :item_status, :shipment_date, :shipment_pref, presence: true
+  validates :images, presence: true, length: {manimum: 1, maximum: 10}
 end
