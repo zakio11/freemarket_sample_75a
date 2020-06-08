@@ -3,22 +3,22 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_item, only: [:purchase, :buy]
   before_action :set_card, only: [:new, :delete, :show, :pay, :purchase, :buy]
-
+  before_action :payjp_key,only:   [:delete, :show, :pay, :purchase, :buy]
 
   def new
-     cards = Cards.where(user_id: current_user.id)
-     redirect_to "/cards/show" if cards.exists?
+    if @card.blank?
+    else
+      redirect_to cards_path
+    end
   end
 
 
   def delete
-    card = Cards.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
       flash[:alert] = 'カード情報を削除しました。'
     end
       redirect_to root_path
@@ -27,19 +27,16 @@ class CardsController < ApplicationController
   
 
   def show
-    card = Cards.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to new_card_path 
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @customer_card = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
     end
   end
 
 
   def pay   # クレジットカード登録
-    Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       redirect_to new_card_path
     else
@@ -59,13 +56,10 @@ class CardsController < ApplicationController
 
 
   def purchase  # 購入確認画面へ遷移
-    @card = Cards.where(user_id: current_user.id).first
-
     if @card.blank?
       redirect_to new_card_path
       flash[:alert] = 'カードが登録されていません'
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id) 
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
@@ -73,15 +67,13 @@ class CardsController < ApplicationController
 
 
   def buy #購入処理
-    card = Cards.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       flash[:alert] = '購入にはクレジットカード登録が必要です'
       redirect_to new_card_path
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
       amount: @item.price,
-      customer: card.customer_id,
+      customer: @card.customer_id,
       currency: 'jpy', 
       )
       if @item.update(buyer_id: current_user.id)
@@ -100,10 +92,15 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Cards.find_by(user_id: current_user.id)
+    @card = Cards.where(user_id: current_user.id).first
   end
 
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def payjp_key
+    Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
   end
 
 
