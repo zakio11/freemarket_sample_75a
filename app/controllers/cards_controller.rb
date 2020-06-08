@@ -91,7 +91,6 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Cards.find_by(user_id: current_user.id)
-   
   end
 
   def set_item
