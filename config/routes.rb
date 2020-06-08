@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   root 'items#index'
   get "users/signout"
   get "items/edit"
-  get "cards/menu"
 
 
   resources :items do
@@ -36,6 +35,8 @@ Rails.application.routes.draw do
     collection do
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+      get "show"
+      get "menu"
     end
   end
 
